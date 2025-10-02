@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. CONFIGURAÇÃO GLOBAL E VARIÁVEIS --- */
+        /* --- 1. GLOBAL SETUP & VARIABLES --- */
         :root {
             --text-color: #24282A;
             --header-color: #231372;
@@ -24,7 +24,7 @@
             --border-color: #e9ecef;
         }
 
-        /* --- 2. ESTILOS DE BASE E RESET --- */
+        /* --- 2. BASE STYLES & RESET --- */
         *, *::before, *::after { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -38,7 +38,7 @@
         }
         main { max-width: 1200px; margin: 2em auto; padding: 0 1.5em; }
 
-        /* --- 3. CABEÇALHO E RODAPÉ --- */
+        /* --- 3. HEADER & FOOTER --- */
         .site-header {
             background-color: var(--card-bg-color);
             padding: 1.5em;
@@ -50,7 +50,7 @@
         .site-header svg { height: 70px; width: auto; }
         .site-footer { text-align: center; padding: 2em; margin-top: 2em; font-size: 0.9em; color: #6c757d; }
 
-        /* --- 4. TIPOGRAFIA --- */
+        /* --- 4. TYPOGRAPHY --- */
         h1, h2, h3, h4 {
             font-family: var(--font-header);
             color: var(--header-color);
@@ -64,14 +64,14 @@
         h4 { font-size: 1.1rem; }
         p.subtitle { color: #6c757d; margin-top: -1em; margin-bottom: 1.5em; }
 
-        /* --- 5. LAYOUT E COMPONENTES --- */
+        /* --- 5. LAYOUT & COMPONENTS --- */
         .card { background-color: var(--card-bg-color); padding: 2em; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 2.5em; }
         .sports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin-top: 1.5em; }
         .sport-card { background-color: var(--background-color); padding: 1.5em; border-radius: 8px; border: 1px solid var(--border-color); }
         .sport-card h4 { margin-top: 0; }
         .chart-container { margin-top: 2em; margin-bottom: 2.5em; }
 
-        /* --- 6. TABELAS --- */
+        /* --- 6. TABLES --- */
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; margin-top: 1em; }
         table th, table td { padding: 1em 1.2em; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-color); }
@@ -82,7 +82,7 @@
         .potential.medium { color: #fd7e14; }
         .potential.none { color: #dc3545; }
 
-        /* --- 7. SECÇÃO DE DETALHES DA PLATAFORMA --- */
+        /* --- 7. PLATFORM DETAILS SECTION --- */
         .details-section { margin-top: 2.5em; }
         .detail-card {
             background-color: var(--background-color);
@@ -123,7 +123,7 @@
         }
         .detail-point p { margin: 0; font-size: 0.95em; }
 
-        /* --- 8. DESIGN RESPONSIVO PARA TABELA REGIONAL --- */
+        /* --- 8. RESPONSIVE DESIGN FOR REGIONAL TABLE --- */
         @media (max-width: 900px) {
             .regional-table thead { display: none; }
             .regional-table tr { display: block; margin-bottom: 1.5em; border: 1px solid var(--border-color); border-radius: 8px; padding: 1em; background-color: #fff; }
@@ -131,6 +131,72 @@
             .regional-table td:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
             .regional-table td::before { content: attr(data-label); position: absolute; left: 0; width: 45%; padding-right: 10px; white-space: nowrap; text-align: left; font-family: var(--font-header); color: var(--header-color); font-weight: 700; text-transform: uppercase; font-size: 0.85em; }
         }
+        
+        /* --- 9. STYLES FOR REGIONAL CHARTS --- */
+        .regional-charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2em;
+            margin-top: 1.5em;
+        }
+        .region-card {
+            background-color: var(--background-color);
+            padding: 1.5em 2em;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .region-card h3 {
+            margin-top: 0;
+            border-bottom: 3px solid var(--highlight-color);
+            padding-bottom: 0.5em;
+            font-size: 1.4rem;
+        }
+        .chart-bar-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5em;
+        }
+        .chart-bar-item {
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        .chart-bar-label {
+            width: 35%;
+            padding-right: 10px;
+            flex-shrink: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .chart-bar-container {
+            width: 55%;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            height: 22px;
+        }
+        .chart-bar {
+            height: 100%;
+            background-color: var(--graphic-color-1);
+            border-radius: 5px;
+        }
+        .chart-percentage-value {
+            width: 10%;
+            flex-shrink: 0;
+            padding-left: 10px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            text-align: right;
+        }
+        /* Alternating colors for bars */
+        .chart-bar-item:nth-child(2n) .chart-bar { background-color: var(--graphic-color-2); }
+        .chart-bar-item:nth-child(3n) .chart-bar { background-color: var(--graphic-color-3); }
+        .chart-bar-item:nth-child(4n) .chart-bar { background-color: var(--graphic-color-1); opacity: 0.7; }
+        .chart-bar-item:nth-child(5n) .chart-bar { background-color: var(--graphic-color-2); opacity: 0.7; }
+        .chart-bar-item:nth-child(6n) .chart-bar { background-color: var(--graphic-color-3); opacity: 0.7; }
+
     </style>
 </head>
 <body>
@@ -201,6 +267,227 @@
                         <tr> <td data-label="Region">Center-West</td> <td data-label="State(s)">Goiás & Mato Grosso</td> <td data-label="Cultural Significance">Football is the primary cultural unifier. The rise of Cuiabá to the top national division has put the region on the sports map.</td> <td data-label="Key Leagues & Events">Football: Copa Verde; State Leagues</td> <td data-label="iGaming Connection">Considered a growth area for betting companies. The focus is almost exclusively on football, with national league matches being the key drivers.</td> </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+        
+        <section class="card">
+            <h2>Regional Fanbase Analysis (Datafolha 2024)</h2>
+            <p>The passion for football in Brazil shows clear regional variations. Clubs from Rio de Janeiro and São Paulo have a national reach, but the strength of local teams defines the landscape in every corner of the country, directly impacting the engagement potential for the iGaming market.</p>
+            <div class="regional-charts-grid">
+                
+                <div class="region-card">
+                    <h3>SOUTHEAST</h3>
+                    <ul class="chart-bar-list">
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Corinthians</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 20%;"></div></div>
+                            <span class="chart-percentage-value">20%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Flamengo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 15%;"></div></div>
+                            <span class="chart-percentage-value">15%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">São Paulo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 8%;"></div></div>
+                            <span class="chart-percentage-value">8%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Palmeiras</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 8%;"></div></div>
+                            <span class="chart-percentage-value">8%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Cruzeiro</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 7%;"></div></div>
+                            <span class="chart-percentage-value">7%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Santos</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 5%;"></div></div>
+                            <span class="chart-percentage-value">5%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Vasco</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 5%;"></div></div>
+                            <span class="chart-percentage-value">5%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Atlético-MG</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 4%;"></div></div>
+                            <span class="chart-percentage-value">4%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Fluminense</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 3%;"></div></div>
+                            <span class="chart-percentage-value">3%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Botafogo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 2%;"></div></div>
+                            <span class="chart-percentage-value">2%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Ponte Preta</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 1%;"></div></div>
+                            <span class="chart-percentage-value">1%</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="region-card">
+                    <h3>NORTHEAST</h3>
+                    <ul class="chart-bar-list">
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Flamengo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 25%;"></div></div>
+                            <span class="chart-percentage-value">25%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Corinthians</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 8%;"></div></div>
+                            <span class="chart-percentage-value">8%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Bahia</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 6%;"></div></div>
+                            <span class="chart-percentage-value">6%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Palmeiras</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 6%;"></div></div>
+                            <span class="chart-percentage-value">6%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Sport</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 5%;"></div></div>
+                            <span class="chart-percentage-value">5%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Fortaleza</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 4%;"></div></div>
+                            <span class="chart-percentage-value">4%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Vasco</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 3%;"></div></div>
+                            <span class="chart-percentage-value">3%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">São Paulo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 3%;"></div></div>
+                            <span class="chart-percentage-value">3%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Vitória</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 3%;"></div></div>
+                            <span class="chart-percentage-value">3%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Ceará</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 2%;"></div></div>
+                            <span class="chart-percentage-value">2%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Santa Cruz</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 2%;"></div></div>
+                            <span class="chart-percentage-value">2%</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="region-card">
+                    <h3>SOUTH</h3>
+                    <ul class="chart-bar-list">
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Grêmio</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 23%;"></div></div>
+                            <span class="chart-percentage-value">23%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Internacional</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 18%;"></div></div>
+                            <span class="chart-percentage-value">18%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Corinthians</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 9%;"></div></div>
+                            <span class="chart-percentage-value">9%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Flamengo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 9%;"></div></div>
+                            <span class="chart-percentage-value">9%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Palmeiras</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 5%;"></div></div>
+                            <span class="chart-percentage-value">5%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">São Paulo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 3%;"></div></div>
+                            <span class="chart-percentage-value">3%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Athletico-PR</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 2%;"></div></div>
+                            <span class="chart-percentage-value">2%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Coritiba</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 2%;"></div></div>
+                            <span class="chart-percentage-value">2%</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="region-card">
+                    <h3>NORTH & CENTER-WEST</h3>
+                    <ul class="chart-bar-list">
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Flamengo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 29%;"></div></div>
+                            <span class="chart-percentage-value">29%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Corinthians</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 11%;"></div></div>
+                            <span class="chart-percentage-value">11%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">São Paulo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 7%;"></div></div>
+                            <span class="chart-percentage-value">7%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Palmeiras</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 6%;"></div></div>
+                            <span class="chart-percentage-value">6%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Remo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 4%;"></div></div>
+                            <span class="chart-percentage-value">4%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Vasco</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 3%;"></div></div>
+                            <span class="chart-percentage-value">3%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Botafogo</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 2%;"></div></div>
+                            <span class="chart-percentage-value">2%</span>
+                        </li>
+                        <li class="chart-bar-item">
+                            <span class="chart-bar-label">Paysandu</span>
+                            <div class="chart-bar-container"><div class="chart-bar" style="width: 2%;"></div></div>
+                            <span class="chart-percentage-value">2%</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -314,7 +601,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>Market analysis generated by AddApps - Clever Adevertising 2025.</p>
+        <p>Market analysis generated by AddApps - Clever Advertising 2025.</p>
     </footer>
 
 </body>
